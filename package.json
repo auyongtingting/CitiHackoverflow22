@@ -1,0 +1,57 @@
+{
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+    "commit": "git commit",
+    "lint": "eslint ./app --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --check .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@remix-run/node": "^1.6.7",
+    "@remix-run/react": "^1.6.7",
+    "@remix-run/vercel": "^1.6.7",
+    "@vercel/node": "^2.4.4",
+    "clsx": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^3.1.7"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.6.7",
+    "@remix-run/eslint-config": "^1.6.7",
+    "@remix-run/serve": "^1.6.7",
+    "@types/react": "^17.0.47",
+    "@types/react-dom": "^17.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "autoprefixer": "^10.4.7",
+    "concurrently": "^7.2.2",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.2.5",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.14",
+    "prettier": "2.7.1",
+    "typescript": "^4.7.4"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "lint-staged": {
+    "app/**/*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier --check"
+    ]
+  }
+}
