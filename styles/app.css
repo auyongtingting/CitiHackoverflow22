@@ -11,5 +11,28 @@
 }
 
 @layer components {
+  /* Button animation classes (do not use directly) */
+  .btn-before {
+    @apply before:absolute before:top-0 before:left-[-5%] before:z-[-1] before:h-full before:w-0 before:rounded-md before:transition-all before:duration-300 before:ease-in-out before:content-[''] hover:before:w-[110%] disabled:before:content-none;
+  }
+  .btn-after {
+    @apply after:absolute after:bottom-0 after:left-0 after:z-[-2] after:h-full after:w-full after:content-[''];
+  }
 
+  /* Button base class (do not use directly) */
+  .btn {
+    @apply btn-before btn-after relative flex cursor-pointer justify-center overflow-hidden rounded-md border border-transparent py-2 px-4 text-sm font-medium shadow-sm transition-all focus:outline-none focus:ring-1 focus:ring-offset-1 disabled:cursor-not-allowed;
+  }
+
+  /* Button variant classes (for use in className, eg. <div className="btn-primary" />) */
+  .btn-primary {
+    @apply btn z-[0] text-white before:bg-indigo-600 after:bg-primary focus:ring-primary disabled:opacity-100 disabled:after:bg-primaryLight;
+  }
+  .btn-primary-outline {
+    @apply btn border-primary text-primary before:bg-primary after:bg-white hover:text-white focus:ring-primary disabled:border-primaryLight disabled:bg-white disabled:text-primaryLight;
+  }
+
+  .link {
+    @apply relative cursor-pointer text-sm font-medium text-primary;
+  }
 }
