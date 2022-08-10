@@ -24,7 +24,7 @@ const FormInput = ({
   type = "text",
   ...Props
 }: FormInputProps) => {
-  const { error } = useField(id);
+  const { error, getInputProps, validate } = useField(id);
   return (
     <label
       htmlFor={id}
@@ -36,6 +36,12 @@ const FormInput = ({
       {label}
       <div className="mt-1">
         <input
+          {...getInputProps({
+            id,
+            onBlur: () => {
+              validate();
+            },
+          })}
           id={id}
           name={name}
           className={clsx(
