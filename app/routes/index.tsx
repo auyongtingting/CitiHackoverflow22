@@ -1,10 +1,10 @@
 import { redirect } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
+import { setAccessToken } from "~/utils";
 
 export const loader: LoaderFunction = async ({ request }) => {
-  // TODO: Check for user cookie here
-  // If no cookie, redirect to login ese redirect to learn
-  return redirect("/login");
+  const res = await setAccessToken(request);
+  return redirect(res ? "/home" : "/login");
 };
 
 export default function Index() {
