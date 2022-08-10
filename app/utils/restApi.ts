@@ -57,10 +57,10 @@ class RestApiClient {
   } // Private method
 
   /**
-   * Get status of the current task in the user's smart import mapping queue.
+   * Login user and receive JWT
    * @public
-   * @param {loginUserInput} option Object of type getMappingStatus
-   * @returns {loginSuccessResponse} Object of type mappingStatusResponse
+   * @param {loginUserInput} option Object of type loginUserInput
+   * @returns {loginSuccessResponse} Object of type loginSuccessResponse
    */
   loginUser(option: loginUserInput): Promise<loginSuccessResponse> {
     return this.#request({
