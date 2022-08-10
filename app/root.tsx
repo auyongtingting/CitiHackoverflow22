@@ -26,8 +26,10 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-gray-50">
+        {/* <div className="h-screen flex max-w-[80%] bg-white ml-auto mr-auto"> */}
         <Outlet />
+        {/* </div> */}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

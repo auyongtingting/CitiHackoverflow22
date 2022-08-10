@@ -26,7 +26,7 @@
 
   /* Button variant classes (for use in className, eg. <div className="btn-primary" />) */
   .btn-primary {
-    @apply btn z-[0] text-white before:bg-indigo-600 after:bg-primary focus:ring-primary disabled:opacity-100 disabled:after:bg-primaryLight;
+    @apply btn z-[0] text-white before:bg-blue-800 after:bg-primary focus:ring-primary disabled:opacity-100 disabled:after:bg-primaryLight;
   }
   .btn-primary-outline {
     @apply btn border-primary text-primary before:bg-primary after:bg-white hover:text-white focus:ring-primary disabled:border-primaryLight disabled:bg-white disabled:text-primaryLight;
