@@ -27,9 +27,7 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-gray-50">
-        {/* <div className="h-screen flex max-w-[80%] bg-white ml-auto mr-auto"> */}
         <Outlet />
-        {/* </div> */}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

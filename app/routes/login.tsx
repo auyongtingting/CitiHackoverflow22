@@ -1,5 +1,5 @@
 import { useActionData } from "@remix-run/react";
-import { json, redirect } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import {
   ValidatedForm,
   validationError,
@@ -8,7 +8,8 @@ import {
 import { withZod } from "@remix-validated-form/with-zod";
 import { z } from "zod";
 import { FormInput, MessageBox } from "~/components";
-import type { ActionFunction } from "@remix-run/node";
+import type { ActionFunction, LoaderFunction } from "@remix-run/node";
+import { badRequest, getUser, createUserSession } from "~/utils";
 
 interface ActionData {
   formError?: string;
@@ -24,21 +25,30 @@ export const loginValidation = withZod(
   })
 );
 
+export const loader: LoaderFunction = async ({ request }) => {
+  const user = await getUser(request);
+  if (user && user.id) return redirect("/home");
+  return {}; // If no user cookie found
+};
+
 export const action: ActionFunction = async ({ request }) => {
   const formData = await loginValidation.validate(await request.formData());
   if (formData.error) return validationError(formData.error);
 
   try {
     await new Promise((res) => setTimeout(res, 2000));
+    const user = {
+      id: "1",
+      name: "kim",
+      email: "test@email.com",
+      accessToken: "123",
+    };
     // TODO: BE Login integration
-    return redirect("/learn");
+    return createUserSession(user, "/");
   } catch (err: any) {
-    return json(
-      {
-        formError: "Unexpected data exception. Please try again later.",
-      },
-      400
-    );
+    return badRequest({
+      formError: "Unexpected data exception. Please try again later.",
+    });
   }
 };
 
@@ -48,7 +58,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-10">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
