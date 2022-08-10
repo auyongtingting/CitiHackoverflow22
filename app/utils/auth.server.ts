@@ -4,8 +4,7 @@ import restApiClient from "./restApi";
 
 export interface UserData {
   id: string;
-  email: string;
-  name: string;
+  username: string;
   accessToken: string;
 }
 
@@ -30,11 +29,10 @@ export const getUser = async (
   await setAccessToken(request);
   const session = await getUserSession(request);
 
-  if (session.has("email")) {
+  if (session.has("username")) {
     return {
       id: session.get("id"),
-      name: session.get("name"),
-      email: session.get("email"),
+      username: session.get("username"),
     };
   }
   return undefined;
@@ -59,8 +57,7 @@ export const createUserSession = async (
   const session = await sessionStorage().getSession();
   restApiClient.setHeader("Authorization", user.accessToken);
   session.set("id", user.id);
-  session.set("name", user.name);
-  session.set("email", user.email);
+  session.set("username", user.username);
   session.set("accessToken", user.accessToken);
 
   return redirect(redirectTo, {

@@ -1,3 +1,5 @@
+import type { loginUserInput, loginSuccessResponse } from "~/types/login";
+
 interface RequestProps {
   resource: string;
   method: "POST" | "GET" | "PUT";
@@ -53,6 +55,22 @@ class RestApiClient {
       return err;
     }
   } // Private method
+
+  /**
+   * Get status of the current task in the user's smart import mapping queue.
+   * @public
+   * @param {loginUserInput} option Object of type getMappingStatus
+   * @returns {loginSuccessResponse} Object of type mappingStatusResponse
+   */
+  loginUser(option: loginUserInput): Promise<loginSuccessResponse> {
+    return this.#request({
+      method: "POST",
+      body: option,
+      resource: "/api/v1/auth/login",
+    });
+  }
 }
 
-export default new RestApiClient(process.env.BACKEND_URL!);
+export default new RestApiClient(
+  "https://fizzbuzz-citihackathon.herokuapp.com"
+);

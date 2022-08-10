@@ -52,6 +52,7 @@ const FormInput = ({
                 error,
             }
           )}
+          type={type}
           {...Props}
         />
       </div>
