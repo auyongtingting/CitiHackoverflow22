@@ -16,7 +16,7 @@ const question = [
     option: ["Loss", "Liability", "Spending", "Consumption"],
   },
   {
-    q: "3. Which of the following is NOT a tyle of government investment?",
+    q: "3. Which of the following is NOT a style of government investment?",
     option: ["Infrastructure", "Research", "Subsidies", "Interest payments"],
   },
 ];
@@ -27,7 +27,7 @@ const CourseQuiz = () => {
   return (
     <div className="flex ml-auto mr-auto flex-col px-4 py-8 max-w-lg">
       <p className="text-lg font-bold text-center py-8">
-        Citibank academy certification quiz
+        Citibank Academy Certification Quiz
       </p>
       {question.map((item, id) => (
         <div key={id} className="justify-center items-center">
