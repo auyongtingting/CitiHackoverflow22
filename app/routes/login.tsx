@@ -9,7 +9,7 @@ import { withZod } from "@remix-validated-form/with-zod";
 import { z } from "zod";
 import { FormInput, MessageBox } from "~/components";
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
-import { badRequest, getUser, createUserSession } from "~/utils";
+import { badRequest, getUser, createUserSession, restApiClient } from "~/utils";
 
 interface ActionData {
   formError?: string;
@@ -17,10 +17,7 @@ interface ActionData {
 
 export const loginValidation = withZod(
   z.object({
-    email: z
-      .string()
-      .email({ message: "Invalid email address." })
-      .min(1, "Email address is required."),
+    username: z.string().min(1, "Email address is required."),
     password: z.string().min(1, "Password is required."),
   })
 );
@@ -36,15 +33,22 @@ export const action: ActionFunction = async ({ request }) => {
   if (formData.error) return validationError(formData.error);
 
   try {
-    await new Promise((res) => setTimeout(res, 2000));
-    const user = {
-      id: "1",
-      name: "kim",
-      email: "test@email.com",
-      accessToken: "123",
+    const logindata = {
+      username: formData.data.username,
+      password: formData.data.password,
     };
-    // TODO: BE Login integration
-    return createUserSession(user, "/");
+    const res = await restApiClient.loginUser(logindata);
+    if (res?.success) {
+      const user = {
+        id: "1",
+        username: logindata.username,
+        accessToken: res.accessToken,
+      };
+      return createUserSession(user, "/");
+    }
+    return badRequest({
+      formError: "Invalid login credentials. Please try again.",
+    });
   } catch (err: any) {
     return badRequest({
       formError: "Unexpected data exception. Please try again later.",
@@ -58,7 +62,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8 mt-10">
+      <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
@@ -69,11 +73,12 @@ const Login = () => {
             Sign in to Citi academy
           </h2>
         </div>
-        {actionData?.formError && (
-          <MessageBox className="w-full mt-0 mb-0 my-3">
-            {actionData.formError}
-          </MessageBox>
-        )}
+        <div className="my-5 ">
+          {actionData?.formError && (
+            <MessageBox className="w-full">{actionData.formError}</MessageBox>
+          )}
+        </div>
+
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <ValidatedForm
@@ -84,7 +89,12 @@ const Login = () => {
               validator={loginValidation}
             >
               <div>
-                <FormInput id="email" name="email" label="Email" />
+                <FormInput
+                  id="email"
+                  name="username"
+                  label="Username"
+                  autoComplete="off"
+                />
               </div>
 
               <div>
@@ -93,7 +103,7 @@ const Login = () => {
                   name="password"
                   label="Password"
                   type="password"
-                  autoComplete="current-password"
+                  autoComplete="off"
                 />
               </div>
 

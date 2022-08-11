@@ -1,3 +1,5 @@
+import type { loginUserInput, loginSuccessResponse } from "~/types/login";
+
 interface RequestProps {
   resource: string;
   method: "POST" | "GET" | "PUT";
@@ -43,7 +45,10 @@ class RestApiClient {
   async #request(req: RequestProps) {
     try {
       const options: RequestInit = {
-        headers: this.options.headers,
+        headers: {
+          ...this.options.headers,
+          "Content-Type": "application/json",
+        },
         method: req.method,
         body: JSON.stringify(req.body),
       };
@@ -53,6 +58,22 @@ class RestApiClient {
       return err;
     }
   } // Private method
+
+  /**
+   * Login user and receive JWT
+   * @public
+   * @param {loginUserInput} option Object of type loginUserInput
+   * @returns {loginSuccessResponse} Object of type loginSuccessResponse
+   */
+  loginUser(option: loginUserInput): Promise<loginSuccessResponse> {
+    return this.#request({
+      method: "POST",
+      body: option,
+      resource: "/api/v1/auth/login",
+    });
+  }
 }
 
-export default new RestApiClient(process.env.BACKEND_URL!);
+export default new RestApiClient(
+  "https://fizzbuzz-citihackathon.herokuapp.com"
+);
