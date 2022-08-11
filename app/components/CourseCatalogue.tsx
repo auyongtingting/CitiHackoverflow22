@@ -15,7 +15,7 @@
   ```
 */
 
-import { restApiClient } from "~/utils";
+import { Link, Outlet } from "@remix-run/react";
 import Badge from "./Badge";
 
 // const courses = await restApiClient.getCourse(courseTier);
@@ -23,7 +23,7 @@ const products = [
   {
     id: 1,
     name: "Wealth Building 101",
-    href: "#",
+    href: "/home/learn/1", // change file
     imageSrc: "../../assets/images/course_1_image.png",
     imageAlt: "course_1 Introduction Video",
     estTime: "4 HR",
@@ -148,10 +148,10 @@ export default function Example() {
               <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <a href={product.href}>
+                    <Link to={product.href}>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.name}
-                    </a>
+                    </Link>
                   </h3>
                   <div>{product.tier}</div>
                 </div>

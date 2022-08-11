@@ -1,7 +1,8 @@
 import React from "react";
+import CourseCatalogue from "~/components/CourseCatalogue";
 
 const LearnIndex = () => {
-  return <div>LearnIndex</div>;
+  return <CourseCatalogue />;
 };
 
 export default LearnIndex;

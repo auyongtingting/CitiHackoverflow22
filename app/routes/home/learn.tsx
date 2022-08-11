@@ -1,9 +1,9 @@
-import CourseCatalogue from "~/components/CourseCatalogue";
+import { Outlet } from "@remix-run/react";
 
 const Learn = () => {
   return (
     <div>
-      <CourseCatalogue />
+      <Outlet />
     </div>
   );
 };
