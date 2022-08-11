@@ -1,6 +1,9 @@
 # CitiHackoverflow22
 
-Description
+Codebase for Submission to CitiHackoverflow 2022 - Team Fizzbuzz. We propose a three-pronged solution - SimpliCiti, Citi Academy and Citi Sandbox
+
+This code repository contains frontend implementation of Citi Academy and Citi Sandbox. The backend repository is linked below. 
+The Figma mockup for SimpliCiti has been linked below as well.
 
 ## Installation
 
