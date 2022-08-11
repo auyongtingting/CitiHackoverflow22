@@ -5,6 +5,8 @@ Codebase for Submission to CitiHackoverflow 2022 - Team Fizzbuzz. We propose a t
 This code repository contains frontend implementation of Citi Academy and Citi Sandbox. The backend repository is linked below. 
 The Figma mockup for SimpliCiti has been linked below as well.
 
+The slides are in the folder labeled Slide_Deck in this repository.
+
 ## Installation
 
 Clone the repo and run yarn in the project's root directory.
