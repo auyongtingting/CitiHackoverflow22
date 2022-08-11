@@ -22,14 +22,14 @@ const steps = [
     status: "complete",
   },
   {
-    name: "Interest and Return",
-    description: "Faucibus nec enim leo et.",
+    name: "Risk and Risk management",
+    description: "Risk management is the process of identifying, assessing and controlling threats to an organization's capital and earnings.",
     href: "#",
     status: "current",
   },
   {
-    name: "Risk and Risk management",
-    description: "Iusto et officia maiores porro ad non quas.",
+    name: "Take Certification Quiz",
+    description: "Score at least 80% within a time limit to earn a certificate.",
     href: "#",
     status: "upcoming",
   },
