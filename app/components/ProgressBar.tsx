@@ -23,7 +23,7 @@ const steps = [
   },
   {
     name: "Risk and Risk management",
-    description: "Risk management is the process of identifying, assessing and controlling threats to an organization's capital and earnings.",
+    description: "What is risk? How do you manage risk?",
     href: "#",
     status: "current",
   },
