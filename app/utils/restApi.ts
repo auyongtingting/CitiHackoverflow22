@@ -45,7 +45,10 @@ class RestApiClient {
   async #request(req: RequestProps) {
     try {
       const options: RequestInit = {
-        headers: this.options.headers,
+        headers: {
+          ...this.options.headers,
+          "Content-Type": "application/json",
+        },
         method: req.method,
         body: JSON.stringify(req.body),
       };
