@@ -10,6 +10,7 @@ import { z } from "zod";
 import { FormInput, MessageBox } from "~/components";
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { badRequest, getUser, createUserSession, restApiClient } from "~/utils";
+import logo from "~/images/citibank_logo.png";
 
 interface ActionData {
   formError?: string;
@@ -64,11 +65,7 @@ const Login = () => {
     <>
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <img
-            className="mx-auto h-32 w-auto"
-            src="../../assets/images/citibank_logo.png"
-            alt="logo"
-          />
+          <img className="mx-auto h-32 w-auto" src={logo} alt="logo" />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in to Citi academy
           </h2>
