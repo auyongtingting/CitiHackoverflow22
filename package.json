@@ -23,6 +23,7 @@
     "clsx": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.3.0",
     "remix-validated-form": "^4.5.5",
     "tailwindcss": "^3.1.7",
     "zod": "^3.17.10"

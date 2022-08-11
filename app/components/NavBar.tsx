@@ -1,14 +1,28 @@
+/* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Link } from "react-router-dom";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 export default function NavBar() {
+  const [activeLink, setActiveLink] = useState("");
+  const [active] = useState(
+    "border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+  );
+  const [nonActive] = useState(
+    "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+  );
+
+  function toggleNav(_section: string) {
+    setActiveLink(_section);
+  }
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -29,32 +43,37 @@ export default function NavBar() {
                   />
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                  <a
-                    href="/home/learn"
-                    className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  <Link
+                    onClick={() => toggleNav("Courses")}
+                    className={activeLink === "Courses" ? active : nonActive}
+                    to="/home/learn"
                   >
                     Courses
-                  </a>
-                  <a
-                    href="#"
-                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  </Link>
+                  <Link
+                    onClick={() => toggleNav("Financial")}
+                    className={activeLink === "Financial" ? active : nonActive}
+                    to="/home/financial-sandbox"
                   >
                     Financial Sandbox
-                  </a>
-                  <a
-                    href="/home"
-                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  </Link>
+                  <Link
+                    onClick={() => toggleNav("Help")}
+                    className={activeLink === "Help" ? active : nonActive}
+                    to="/home/help"
                   >
                     Help
-                  </a>
-                  <a
-                    href="#"
-                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  </Link>
+                  <Link
+                    onClick={() => toggleNav("Advisor")}
+                    className={activeLink === "Advisor" ? active : nonActive}
+                    to="/home/book-advisor"
                   >
-                    Book an advisor
-                  </a>
+                    Book an Advisor
+                  </Link>
                 </div>
               </div>
+
               <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
                 <div className="max-w-lg w-full lg:max-w-xs">
                   <label htmlFor="search" className="sr-only">
