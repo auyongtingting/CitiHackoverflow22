@@ -14,6 +14,11 @@
   }
   ```
 */
+
+import { restApiClient } from "~/utils";
+import Badge from "./Badge";
+
+// const courses = await restApiClient.getCourse(courseTier);
 const products = [
   {
     id: 1,
@@ -21,8 +26,12 @@ const products = [
     href: "#",
     imageSrc: "../../assets/images/course_1_image.png",
     imageAlt: "course_1 Introduction Video",
-    price: "$35",
-    color: "Black",
+    estTime: "4 HR",
+    tier: (
+      <Badge color="green" size="big">
+        Tier 1
+      </Badge>
+    ),
   },
   {
     id: 2,
@@ -30,17 +39,90 @@ const products = [
     href: "#",
     imageSrc: "../../assets/images/course_2_image.png",
     imageAlt: "course_2 Introduction Video",
-    price: "$35",
-    color: "Black",
+    estTime: "2 HR",
+    tier: (
+      <Badge color="green" size="big">
+        Tier 1
+      </Badge>
+    ),
   },
   {
     id: 3,
-    name: "Introduction: Citi Wealth Management",
+    name: "Introduction: Market Risk",
     href: "#",
-    imageSrc: "../../assets/images/course_2_image.png",
-    imageAlt: "course_2 Introduction Video",
-    est_time: "8 HR",
-    tier: "Black",
+    imageSrc: "../../assets/images/course_3_image.png",
+    imageAlt: "course_3 Introduction Video",
+    estTime: "8 HR",
+    tier: (
+      <Badge color="green" size="big">
+        Tier 1
+      </Badge>
+    ),
+  },
+  {
+    id: 4,
+    name: "Basics of Developing a Portfolio",
+    href: "#",
+    imageSrc: "../../assets/images/course_4_image.png",
+    imageAlt: "course_4 Introduction Video",
+    estTime: "8 HR",
+    tier: (
+      <Badge color="green" size="big">
+        Tier 1
+      </Badge>
+    ),
+  },
+  {
+    id: 5,
+    name: "Currency Trading Market",
+    href: "#",
+    imageSrc: "../../assets/images/course_5_image.png",
+    imageAlt: "course_5 Introduction Video",
+    estTime: "12 HR",
+    tier: (
+      <Badge color="yellow" size="big">
+        Tier 2
+      </Badge>
+    ),
+  },
+  {
+    id: 6,
+    name: "Unit Trusts 101",
+    href: "#",
+    imageSrc: "../../assets/images/course_6_image.jpg",
+    imageAlt: "course_6 Introduction Video",
+    estTime: "15 HR",
+    tier: (
+      <Badge color="yellow" size="big">
+        Tier 2
+      </Badge>
+    ),
+  },
+  {
+    id: 7,
+    name: "Stock Market: Basics of ETFs",
+    href: "#",
+    imageSrc: "../../assets/images/course_7_image.jpg",
+    imageAlt: "course_7 Introduction Video",
+    estTime: "20 HR",
+    tier: (
+      <Badge color="red" size="big">
+        Tier 3
+      </Badge>
+    ),
+  },
+  {
+    id: 8,
+    name: "Stock Market: Diversification",
+    href: "#",
+    imageSrc: "../../assets/images/course_8_image.jpg",
+    imageAlt: "course_8 Introduction Video",
+    estTime: "20 HR",
+    tier: (
+      <Badge color="red" size="big">
+        Tier 3
+      </Badge>
+    ),
   },
   // More products...
 ];
@@ -50,7 +132,7 @@ export default function Example() {
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
-          Our Course Catalogue
+          Hello Kim, Lets Resume Learning!
         </h2>
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -71,10 +153,10 @@ export default function Example() {
                       {product.name}
                     </a>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                  <div>{product.tier}</div>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
-                  {product.est_time}
+                  {product.estTime}
                 </p>
               </div>
             </div>
