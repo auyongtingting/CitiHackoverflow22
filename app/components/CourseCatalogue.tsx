@@ -1,5 +1,14 @@
 import { Link, Outlet } from "@remix-run/react";
 import clsx from "clsx";
+import img1 from "~/images/course_1_image.png";
+import img2 from "~/images/course_2_image.png";
+import img3 from "~/images/course_3_image.png";
+import img4 from "~/images/course_4_image.png";
+import img5 from "~/images/course_5_image.png";
+import img6 from "~/images/course_6_image.jpg";
+import img7 from "~/images/course_7_image.jpg";
+import img8 from "~/images/course_8_image.jpg";
+
 import Badge from "./Badge";
 
 // const courses = await restApiClient.getCourse(courseTier);
@@ -8,7 +17,7 @@ const products = [
     id: 1,
     name: "Wealth Building 101",
     href: "/home/learn/1", // change file
-    imageSrc: "../../assets/images/course_1_image.png",
+    imageSrc: img1,
     imageAlt: "course_1 Introduction Video",
     estTime: "4 HR",
     tier: (
@@ -21,7 +30,7 @@ const products = [
     id: 2,
     name: "Introduction: Citi Wealth Management",
     href: "#",
-    imageSrc: "../../assets/images/course_2_image.png",
+    imageSrc: img2,
     imageAlt: "course_2 Introduction Video",
     estTime: "2 HR",
     tier: (
@@ -34,7 +43,7 @@ const products = [
     id: 3,
     name: "Introduction: Market Risk",
     href: "#",
-    imageSrc: "../../assets/images/course_3_image.png",
+    imageSrc: img3,
     imageAlt: "course_3 Introduction Video",
     estTime: "8 HR",
     tier: (
@@ -47,7 +56,7 @@ const products = [
     id: 4,
     name: "Basics of Developing a Portfolio",
     href: "#",
-    imageSrc: "../../assets/images/course_4_image.png",
+    imageSrc: img4,
     imageAlt: "course_4 Introduction Video",
     estTime: "8 HR",
     tier: (
@@ -60,7 +69,7 @@ const products = [
     id: 5,
     name: "Currency Trading Market",
     href: "#",
-    imageSrc: "../../assets/images/course_5_image.png",
+    imageSrc: img5,
     imageAlt: "course_5 Introduction Video",
     estTime: "12 HR",
     tier: (
@@ -73,7 +82,7 @@ const products = [
     id: 6,
     name: "Unit Trusts 101",
     href: "#",
-    imageSrc: "../../assets/images/course_6_image.jpg",
+    imageSrc: img6,
     imageAlt: "course_6 Introduction Video",
     estTime: "15 HR",
     tier: (
@@ -86,7 +95,7 @@ const products = [
     id: 7,
     name: "Stock Market: Basics of ETFs",
     href: "#",
-    imageSrc: "../../assets/images/course_7_image.jpg",
+    imageSrc: img7,
     imageAlt: "course_7 Introduction Video",
     estTime: "20 HR",
     tier: (
@@ -99,7 +108,7 @@ const products = [
     id: 8,
     name: "Stock Market: Diversification",
     href: "#",
-    imageSrc: "../../assets/images/course_8_image.jpg",
+    imageSrc: img8,
     imageAlt: "course_8 Introduction Video",
     estTime: "20 HR",
     tier: (

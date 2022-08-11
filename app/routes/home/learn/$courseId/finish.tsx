@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import React from "react";
 import { CheckCircleIcon } from "@heroicons/react/solid";
+import qrcode from "~/images/qrcode.png";
 
 const finish = () => {
   return (
@@ -26,7 +27,7 @@ const finish = () => {
             Scan the QR code to retrieve your verifiable credentials of your
             course certification.
           </p>
-          <img className="" src="../../assets/images/qrcode.png" alt="QRCode" />
+          <img className="" src={qrcode} alt="QRCode" />
           <p className="link text-lg">
             Learn more about Verifiable Credentials
           </p>
