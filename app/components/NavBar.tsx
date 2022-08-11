@@ -33,7 +33,7 @@ export default function NavBar() {
                 <div className="flex-shrink-0 flex items-center">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    src="../../assets/images/citibank_logo.png"
                     alt="Workflow"
                   />
                   <img
