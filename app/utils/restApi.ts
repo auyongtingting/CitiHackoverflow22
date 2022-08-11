@@ -1,4 +1,11 @@
-import type { loginUserInput, loginSuccessResponse } from "~/types/login";
+import { optional } from "zod";
+import type {
+  loginUserInput,
+  loginSuccessResponse,
+  course,
+  courseResponseDTO,
+  courseTier,
+} from "~/types/login";
 
 interface RequestProps {
   resource: string;
@@ -70,6 +77,22 @@ class RestApiClient {
       method: "POST",
       body: option,
       resource: "/api/v1/auth/login",
+    });
+  }
+
+  addCourse(option: course): Promise<courseResponseDTO> {
+    return this.#request({
+      method: "POST",
+      body: option,
+      resource: "/api/v1/course",
+    });
+  }
+
+  getCourse(option: courseTier): Promise<courseResponseDTO[]> {
+    return this.#request({
+      method: "GET",
+      body: optional,
+      resource: "/api/v1/course",
     });
   }
 }

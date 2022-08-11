@@ -1,5 +1,11 @@
+import CourseCatalogue from "~/components/CourseCatalogue";
+
 const Learn = () => {
-  return <div>Learn is the main home page</div>;
+  return (
+    <div>
+      <CourseCatalogue />
+    </div>
+  );
 };
 
 export default Learn;
