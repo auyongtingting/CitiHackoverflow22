@@ -17,7 +17,7 @@ interface ActionData {
 
 export const loginValidation = withZod(
   z.object({
-    username: z.string().min(1, "Email address is required."),
+    username: z.string().min(1, "Username is required."),
     password: z.string().min(1, "Password is required."),
   })
 );
@@ -65,7 +65,7 @@ const Login = () => {
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
-            className="mx-auto h-12 w-auto"
+            className="mx-auto h-32 w-auto"
             src="../../assets/images/citibank_logo.png"
             alt="logo"
           />
@@ -90,7 +90,7 @@ const Login = () => {
             >
               <div>
                 <FormInput
-                  id="email"
+                  id="username"
                   name="username"
                   label="Username"
                   autoComplete="off"
@@ -152,8 +152,12 @@ const Login = () => {
                   </span>
                 </div>
               </div>
-
-              <div className="btn-primary mt-6">Sign in with Citi</div>
+              <a
+                href="https://www.citibank.com.sg/SGGCB/JSO/username/signon/flow.action"
+                className="btn-primary mt-6"
+              >
+                Sign in with Citi
+              </a>
             </div>
           </div>
         </div>
