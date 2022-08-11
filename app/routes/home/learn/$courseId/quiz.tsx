@@ -16,7 +16,7 @@ const question = [
     option: ["Loss", "Liability", "Spending", "Consumption"],
   },
   {
-    q: "3. Which of the following is NOT a tyle of government investment?",
+    q: "3. Which of the following is NOT a style of government investment?",
     option: ["Infrastructure", "Research", "Subsidies", "Interest payments"],
   },
 ];
