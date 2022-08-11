@@ -27,6 +27,9 @@ yarn commit
 | ESLint (Airbnb) |
 | TailwindCSS     |
 
+## BE server repo
+https://github.com/k1any33/FizzBuzz-server
+
 ## License
 
 Null
