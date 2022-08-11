@@ -2,6 +2,7 @@ import { json, redirect } from "@remix-run/node";
 import type { LoaderFunction } from "@remix-run/node";
 import { getUser } from "~/utils";
 import { Outlet } from "@remix-run/react";
+import { NavBar } from "~/components";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const user = await getUser(request);
@@ -12,7 +13,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 const Home = () => {
   return (
     <div>
-      This is where navbar should be
+      <NavBar />
       <Outlet />
     </div>
   );
