@@ -30,6 +30,9 @@ yarn commit
 ## BE server repo
 https://github.com/k1any33/FizzBuzz-server
 
+## Figma of SimpliCiti, A Gamified Portfolio Builder
+https://www.figma.com/file/7G2Sv0TkTS7rV79UB3nmzg/Gamified?node-id=0%3A1
+
 ## License
 
 Null
