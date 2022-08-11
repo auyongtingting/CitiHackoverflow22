@@ -8,7 +8,7 @@ module.exports = {
         primaryLight: "#93c5fd",
       },
       fontFamily: {
-        sans: ["Manrope", "sans-serif", "Inter var"],
+        sans: ["Inter", "sans-serif"],
       },
     },
   },
