@@ -4,31 +4,31 @@ import { CheckIcon } from "@heroicons/react/solid";
 
 const steps = [
   {
-    name: "Create account",
-    description: "Vitae sed mi luctus laoreet.",
+    name: "Money and Capital",
+    description: "What is exactly Capital? Is it just Money?",
     href: "#",
     status: "complete",
   },
   {
-    name: "Profile information",
-    description: "Cursus semper viverra facilisis et et some more.",
+    name: "Cash flows and Cash flow forecasting",
+    description: "Everyone wants cash flowing in. How do they",
+    href: "#",
+    status: "complete",
+  },
+  {
+    name: "Financial reporting",
+    description: "Financial reporting aims to track, analyse and report your business income.",
+    href: "#",
+    status: "complete",
+  },
+  {
+    name: "Interest and Return",
+    description: "Faucibus nec enim leo et.",
     href: "#",
     status: "current",
   },
   {
-    name: "Business information",
-    description: "Penatibus eu quis ante.",
-    href: "#",
-    status: "upcoming",
-  },
-  {
-    name: "Theme",
-    description: "Faucibus nec enim leo et.",
-    href: "#",
-    status: "upcoming",
-  },
-  {
-    name: "Preview",
+    name: "Risk and Risk management",
     description: "Iusto et officia maiores porro ad non quas.",
     href: "#",
     status: "upcoming",
